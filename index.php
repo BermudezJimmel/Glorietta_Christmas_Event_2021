@@ -6,32 +6,34 @@ include('db.php');
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Student Crud Operation</title>
+	<title>Glorietta Project</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-	<div class="container jumbotron">
+	<div class="container">
 		<h4 class="text-center"> 
-		   Crud Operation in PHP and Mysql  
+		   Ayala - Glorietta
 		   <span style="margin-left: 30px;">
 		   	     <a href="#"><i class="fa fa-plus" data-toggle="modal" data-target="#myModal"></i></a>
 		   </span>
 		</h4>
 		<table class="table table-bordered table-striped table-hover">
 			<tr>
-				<th class="text-center">ID</th>
-				<th class="text-center">Name</th>
-				<th class="text-center">E-mail</th>
-				<th class="text-center">Phone</th>
-				<th class="text-center">Address</th>
-				<th class="text-center">Picture</th>
-				<th class="text-center">Edit</th>
-				<th class="text-center">Delete</th>
+				<th class="text-head">ID</th>
+				<th class="text-head">Name</th>
+				<th class="text-head">E-mail</th>
+				<th class="text-head">Phone</th>
+				<th class="text-head">Address</th>
+				<th class="text-head">Picture</th>
+				<th class="text-head">Edit</th>
+				<th class="text-head">Delete</th>
 			</tr>
  
 			<?php  
