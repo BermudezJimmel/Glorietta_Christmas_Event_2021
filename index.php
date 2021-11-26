@@ -20,10 +20,10 @@ include('db.php');
 	<div class="container">
 		<div id="Admin-Header">
 			<h1>Glorietta - Ayala</h1>	
-			<div>
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-				Launch demo modal
-			</button>
+			<div class="buttons">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+					Launch demo modal
+				</button>
 			</div>
 		</div>
 		
