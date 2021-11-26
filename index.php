@@ -8,7 +8,8 @@ include('db.php');
 <head>
 	<title>Glorietta Project</title>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -17,7 +18,7 @@ include('db.php');
 
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		<div id="Admin-Header">
 			<h1>Glorietta - Ayala</h1>	
 			<div class="buttons">
@@ -39,7 +40,7 @@ include('db.php');
 		
 		<table class="table table-bordered table-striped table-hover">
 			<tr>
-				<th class="text-head">ID</th>
+				<!-- <th class="text-head">ID</th> -->
 				<th class="text-head">Name</th>
 				<th class="text-head">E-mail</th>
 				<th class="text-head">Phone</th>
@@ -66,7 +67,7 @@ include('db.php');
         		echo "
 
         		<tr>
-				<td class='text-center'>$id</td>
+				
 				<td class='text-center'>$name</td>
 				<td class='text-center'>$email</td>
 				<td class='text-center'>$phone</td>
