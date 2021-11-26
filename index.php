@@ -18,12 +18,16 @@ include('db.php');
 </head>
 <body>
 	<div class="container">
-		<h4 class="text-center"> 
-		   Ayala - Glorietta
-		   <span style="margin-left: 30px;">
-		   	     <a href="#"><i class="fa fa-plus" data-toggle="modal" data-target="#myModal"></i></a>
-		   </span>
-		</h4>
+		<div id="Admin-Header">
+			<h1>Glorietta - Ayala</h1>	
+			<div>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+				Launch demo modal
+			</button>
+			</div>
+		</div>
+		
+		
 		<table class="table table-bordered table-striped table-hover">
 			<tr>
 				<th class="text-head">ID</th>
