@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap');
+
+
+.container-fluid {
+    background-color:lightblue;
+}
+
+
+
+
+
+/* Admin Header  */
+h1 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: end;
+    padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.buttons button{
+    margin-left: 10px;
+}
+
+
+
+/* TABLE  */
+
+table .table{
+    overflow-x: auto;
+    
+}
+
+table .text-head{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* Modal Buttons*/
+.button-transaction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

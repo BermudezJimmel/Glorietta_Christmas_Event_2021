@@ -1,0 +1,62 @@
+February 14
+
+- Registration Basic info
+- 3 Option
+- Picture 1MB & 50 Characters
+- No redundant Email
+
+
+Source:
+
+Day1
+-https://www.youtube.com/watch?v=z5eL6TStPws&t=288s&ab_channel=AwaMelvine
+-https://codewithawa.com/posts/image-preview-and-upload-using-php-and-mysql-database
+
+Day2
+-https://www.codexworld.com/image-gallery-crud-with-php-mysql/
+
+
+AJAX TUT
+- https://www.webslesson.info/2017/01/php-pdo-ajax-crud-with-data-tables-and-bootstrap-modals.html
+-----------------------
+
+Basic info
+- ID
+- Lname
+- Fname
+- Gender
+- Email 
+- date
+- status
+
+Love One
+- ID
+- Picture
+- 100 Characters
+- date
+- Status
+
+
+-----------------------                                                            g
+Query
+
+CREATE TABLE `users` (
+ `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ `profile_image` varchar(255) NOT NULL,
+ `bio` text NOT NULL
+)
+
+
+------
+DATABaSE CoNNECTION
+https://www.globaltronics.net/phpMyAdmin/
+User: c1beta
+Pasword: N2VGk!hXqvr
+
+<?php
+$con = mysqli_connect('localhost','c1beta','N2VGk!hXqvr','c1beta');
+if($con){
+	
+}else{
+	echo "Not Connected";
+}

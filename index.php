@@ -1,436 +1,338 @@
-<?php
-include('db.php');
-
-?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+ 
 <head>
-	<title>Glorietta Project</title>
-	<meta charset="utf-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+ 
+  <title>LOVE DIGITAL</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/faviconDigiPARC.png" rel="icon">
+  <link href="assets/img/FAVI.png" rel="fAVI-ICON">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Siimple - v2.1.0
+  * Template URL: https://bootstrapmade.com/free-bootstrap-landing-page/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
-	<div class="container-fluid">
-		<div id="Admin-Header">
-			<div class="page-header">
-				<h1>Ayala - Glorietta <small>LED Event System</small></h1>
-			</div>
-			<div class="buttons">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-					ADD
-				</button>
-				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#PendingModal">
-					PENDING 
-						<span>(
-						<?php 
-							include('db.php');
 
-							foreach($con->query('SELECT COUNT(*) FROM user where status="pending"') as $row)
-								{
-							
-								echo $row['COUNT(*)'];
-								
-								}
-							
-								
-						?>
-						)</span>
-				</button>
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ApprovedModal">
-					APPROVED
-					<span>(
-						<?php 
-							include('db.php');
+  <!-- ======= Header ======= -->
+  <!--<header id="header">
+    <div class="container-fluid">
 
-							foreach($con->query('SELECT COUNT(*) FROM user where status="approved"') as $row)
-								{
-							
-								echo $row['COUNT(*)'];
-								
-								}
-							
-						
-						?>
-						)</span>
-				</button>
-				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#DoneModal">
-					DONE
-					<span>(
-						<?php 
-							include('db.php');
+      <div class="logo float-left">
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+       <!--</div>
 
-							foreach($con->query('SELECT COUNT(*) FROM user where status="done"') as $row)
-								{
-							
-								echo $row['COUNT(*)'];
-								
-								}
-							
-						
-						?>
-						)</span>
-				</button>
-			</div>
-		</div>
-		
-		
-		<table class="table table-bordered table-striped table-hover">
-			<tr>
-				<!-- <th class="text-head">ID</th> -->
-				<th class="text-head">Name</th>
-				<th class="text-head">E-mail</th>
-				<th class="text-head">Phone</th>
-				<th class="text-head">Address</th>
-				<th class="text-head">Picture</th>
-				<th class="text-head">Action</th>
-				<!-- <th class="text-head">Delete</th> -->
-			</tr>
- 
-			<?php  
+      <button type="button" class="nav-toggle"><i class="bx bx-menu"></i></button>
+      <nav class="nav-menu">
+        <ul>
+          <li class="active"><a href="#header">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li class="drop-down"><a href="">Drop Down</a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="drop-down"><a href="#">Drop Down 2</a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Drop Down 5</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav> .nav-menu -->
 
-        	$get_data = "SELECT * FROM user";
-        	$run_data = mysqli_query($con,$get_data);
+    <!-- </div>
+  </header> End #header -->
+  
 
-        	while($row = mysqli_fetch_array($run_data))
-        	{
-        		$id = $row['id']; 
-        		$name = $row['name'];
-        		$email = $row['email'];
-        		$phone = $row['phone'];
-        		$address = $row['address'];
-        		$image = $row['image'];
-
-        		echo "
-
-        		<tr>
-				
-				<td class='text-center'>$name</td>
-				<td class='text-center'>$email</td>
-				<td class='text-center'>$phone</td>
-				<td class='text-center'>$address</td>
-				<td class='text-center'><img src='images/$image' style='width:50px; height:50px;'></td>
-				<td class='text-center'>
-					<span>
-					     <a href='#'>
-					         <i class='fa fa-pencil' data-toggle='modal' data-target='#edit$id' style='' aria-hidden='true'></i>
-					    </a>
-					</span>
-					
-				</td>
-				
-			</tr>
-
-
-        		";
-        	}
-
-        	?>
-
-			
-			
-		</table>
-	</div>
-
-
-
-	
-	<!---Add in modal---->
-
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title text-center">Add Data</h4>
-      </div>
-      <div class="modal-body">
-        <form action="add.php" method="POST" enctype="multipart/form-data">
-
-<!-- 
-        	<div class="form-group">
-        		<label>ID</label>
-        		<input type="text" name="id" class="form-control" placeholder="Your ID.....">
-        	</div> -->
-
-        	<div class="form-group">
-        		<label>Name</label>
-        		<input type="text" name="name" class="form-control" placeholder="Your Name.....">
-        	</div>
-
-        	<div class="form-group">
-        		<label>E-Mail</label>
-        		<input type="email" name="email" class="form-control" placeholder="Your Email.....">
-        	</div>
-
-        	<div class="form-group">
-        		<label>Phone</label>
-        		<input type="text" name="phone" class="form-control" placeholder="Your Phone.....">
-        	</div>
-
-        	<div class="form-group">
-        		<label>Address</label>
-        		<input type="text" name="address" class="form-control" placeholder="Your Address.....">
-        	</div>
-
-        	<div class="form-group">
-        		<label>Image</label>
-        		<input type="file" name="image" class="form-control" accept="image/*" >
-        	</div>
-
-			<div class="button-transaction">
-				<input type="submit" name="submit" class="btn btn-primary btn-large" value="ADD / Submit">
-			</div>
-        	
-        	
-        </form>
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div> -->
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+        <div class="Logoo">
+            
+        </div>     
+        <div class="php-email-form">
+          <img src="assets/img/PNG/Hero_Logo.png" alt="">
+        <div>
+          <!--<h2 id="detail">Globaltronics, in partnership with The PARC Foundation,<br>transforms several of the latter's spaces into the first "Truly Digital Events Place" in the country.</h2>-->
+        <button type="submit" data-toggle="modal" data-target="#exampleModal" style="visibility: hidden;">REGISTER NOW!</button>
+          <!-- Button trigger modal -->
+   
     </div>
-
-  </div>
-</div>
-
-
-<!------DELETE modal---->
-
-
-
-
+    </div>
+         
+    
+    
+    
+  </section><!-- #hero -->
 <!-- Modal -->
-<?php
-
-$get_data = "SELECT * FROM user";
-$run_data = mysqli_query($con,$get_data);
-
-while($row = mysqli_fetch_array($run_data))
-{
-	$id = $row['id'];
-	echo "
-
-<div id='$id' class='modal fade' role='dialog'>
-  <div class='modal-dialog'>
-
-    <!-- Modal content-->
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <button type='button' class='close' data-dismiss='modal'>&times;</button>
-        <h4 class='modal-title text-center'>Are you want to sure??</h4>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+    <div>
+        <h5 class="text-center font-weight-bold mb-0 mt-3">Choose your Template</h5>
+    </div>
+      <div class="modal-body" >
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" onclick="window.open('https://beta.globaltronics.net/Temp1.php')" style="cursor: pointer;margin-bottom:20px">
+    <div class="card h-80"  style="background-color: #E19ECE;">
+      <img
+        src="assets/img/template/GoldandSilverHeart_PHONE.png"
+        class="card-img-center"
+        alt="..."
+      />
+      <div class="card-footer" style="background-color: #E19ECE;">
+      <center><h5 class="card-title text-white font-weight-bold">Gold and Silver Heart</h5></center>
       </div>
-      <div class='modal-body'>
-        <a href='delete.php?id=$id' class='btn btn-danger' style='margin-left:250px'>Delete</a>
+     
+    </div>
+  </div>
+  <div class="col" onclick="window.open('https://beta.globaltronics.net/Temp2.php')" style="cursor: pointer;margin-bottom:20px">
+    <div class="card h-80" style="background-color: #D21611;">
+      <img
+        src="assets/img/template/RedHeart_PHONE.png"
+        class="card-img-center"
+        alt="..."
+      />
+      <div class="card-footer" style="background-color: #D21611;">
+      <center><h5 class="card-title text-white font-weight-bold">Red Heart</h5></center>
       </div>
       
     </div>
-
+  </div>
+  <div class="col" onclick="window.open('https://beta.globaltronics.net/Temp3.php')" style="cursor: pointer;margin-bottom:20px">
+    <div class="card h-80" style="background-color: #D81B71;">
+      <img
+        src="assets/img/template/ValentineTyphography_PHONE.png"
+      />
+      <div class="card-footer" style="background-color: #D81B71;">
+        <center><h5 class="card-title text-white font-weight-bold">Valentine Typography</h5></center>
+      </div>
+     
+    </div>
   </div>
 </div>
 
-
-	";
-}
-
-
-?>
-
-<!----edit Data--->
-
-<?php
-
-$get_data = "SELECT * FROM user";
-$run_data = mysqli_query($con,$get_data);
-
-while($row = mysqli_fetch_array($run_data))
-{
-	$id = $row['id'];
-	$name = $row['name'];
-	$email = $row['email'];
-	$phone = $row['phone'];
-	$address = $row['address'];
-	// $image = $row['image'];
-	echo "
-
-<div id='edit$id' class='modal fade' role='dialog'>
-  <div class='modal-dialog'>
-
-    <!-- Modal content-->
-    <div class='modal-content'>
-      <div class='modal-header'>
-             <button type='button' class='close' data-dismiss='modal'>&times;</button>
-             <h4 class='modal-title text-center'>Edit your Data</h4> 
-      </div>
-
-      <div class='modal-body'>
-        <form action='edit.php?id=$id' method='post' enctype='multipart/form-data'>
-
-             
-        	<div class='form-group'>
-        		<label>Name</label>
-        		<input type='text' name='name' class='form-control' value='$name'>
-        	</div>
-
-        	<div class='form-group'>
-        		<label>E-Mail</label>
-        		<input type='email' name='email' class='form-control' value='$email'>
-        	</div>
-
-        	<div class='form-group'>
-        		<label>Phone</label>
-        		<input type='text' name='phone' class='form-control' value='$phone'>
-        	</div>
-
-
-        	<div class='form-group'>
-        		<label>Image</label> <br>
-        		<img src = 'images/$image' style='max-width: 250px'>
-        	</div>
-
-        	
-        	 <input type='submit' name='submit' class='btn btn-info btn-large' value='Submit'>
-        	
-
-
-
+      
+<!--
+        <center>
+          <form action="Options.html" method="POST" >
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+              <label class="form-check-label" for="invalidCheck3">
+                Agree to terms and conditions
+              </label>
+              <div  id="invalidCheck3Feedback" class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">PROCEED TO BOOKING</button>
         </form>
+        </center>-->
+        
       </div>
-
+      
     </div>
-
   </div>
 </div>
-
-
-	";
-}
-
-
-?>
-
-
-
-<!-- Pending Modal  -->
-<div id="PendingModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
+<!-- ======= MODAL STUDIO ======= -->
+<!-- Modal -->
+<div class="modal fade" id="CreativityHall" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-lg modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title text-center">Pending Data</h4>
+        <h5 class="modal-title" id="staticBackdropLabel">Creativity Hall</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
-	  <table class="table table-bordered table-striped table-hover">
-			<tr>
-				<!-- <th class="text-head">ID</th> -->
-				<th class="text-head">Name</th>
-				<th class="text-head">Picture</th>
-				<th class="text-head">Action</th>
-				<!-- <th class="text-head">Delete</th> -->
-			</tr>
- 
-			<?php  
-
-        	$get_data = "SELECT * FROM user";
-        	$run_data = mysqli_query($con,$get_data);
-
-        	while($row = mysqli_fetch_array($run_data))
-        	{
-        		$id = $row['id']; 
-        		$name = $row['name'];
-        		$image = $row['image'];
-
-        		echo "
-
-        		<tr>
-				
-				<td class='text-center'>$name</td>
-				<td class='text-center'><img src='images/$image' style='width:50px; height:50px;'></td>
-				<td class='text-center'>
-					<span>
-					     <a href='#'>
-					         <i class='fa fa-pencil' data-toggle='modal' data-target='#edit$id' style='' aria-hidden='true'></i>
-					    </a>
-					</span>
-					
-				</td>
-				
-			</tr>
-
-
-        		";
-        	}
-
-        	?>
-
-			
-			
-		</table>
-
-    
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="assets/img/CreativityHall_PARC Digital Events Place 1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/CreativityHall_PARC Digital Events Place 2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/CreativityHall_PARC Digital Events Place 3.jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div> -->
     </div>
-
   </div>
 </div>
 
-<!-- Approved Modal  -->
-<div id="ApprovedModal" class="modal fade" role="dialog">
-  <div class="modal-dialog  modal-lg">
-
-    <!-- Modal content-->
+<div class="modal fade" id="BlackBox" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-lg modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title text-center">Approved Data</h4>
+        <h5 class="modal-title" id="staticBackdropLabel">Black Box</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
-    
+        <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators1" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators1" data-slide-to="4"></li>
+            <li data-target="#carouselExampleIndicators1" data-slide-to="5"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="assets/img/Blackbox_PARC Digital Events Place 1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/Blackbox_PARC Digital Events Place 2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/Blackbox_PARC Digital Events Place 3.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/Blackbox_PARC Digital Events Place 4.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/Blackbox_PARC Digital Events Place 5.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/Blackbox_PARC Digital Events Place 6.jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div> -->
     </div>
-
   </div>
 </div>
 
-
-
-
-<!-- Done Modal  -->
-<div id="DoneModal" class="modal fade" role="dialog">
-  <div class="modal-dialog  modal-lg">
-
-    <!-- Modal content-->
+<div class="modal fade" id="Gallery" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-lg modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title text-center">Done Data</h4>
+        <h5 class="modal-title" id="staticBackdropLabel">Gallery</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
-    
+        <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators3" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators3" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators3" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="assets/img/Gallery_PARC Digital Events Place 1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/Gallery_PARC Digital Events Place 2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/Gallery_PARC Digital Events Place 3.jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators3" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div> -->
     </div>
-
   </div>
 </div>
+
+  <!-- ======= Footer ======= 
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>DigiPARC</span></strong>. All Rights Reserved
+      </div>
+     
+    </div>
+  </footer> End #footer -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  
+
+
+
+
 </body>
+
 </html>

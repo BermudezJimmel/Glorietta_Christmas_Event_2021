@@ -8,27 +8,19 @@ if(isset($_POST['submit']))
 	$email = $_POST['email'];
 	$phone = $_POST['phone'];
 	$address  = $_POST['address'];
+	$status = $_POST['status'];
+	
+	$msg = "";
+	$image = $_FILES['image']['name'];
+	$target = "images/".basename($image);
+
 	
 
-	// IMAGE EDIT 
-
-	// $msg = "";
-	// $image = $_FILES['image']['name'];
-	// $target = "images/".basename($image);
-
-	// if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-  	// 	$msg = "Image uploaded successfully";
-  	// }else{
-  	// 	$msg = "Failed to upload image";
-  	// }
-
-	// $update = "UPDATE user SET name='$name', email = '$email', phone = '$phone', address = '$address', image = '$image' WHERE id=$id ";
-
-	$update = "UPDATE user SET name='$name', email = '$email', phone = '$phone', address = '$address' WHERE id=$id ";
+	$update = "UPDATE user SET name='$name', email = '$email', phone = '$phone', address = '$address', status = '$status' WHERE id=$id ";
 	$run_update = mysqli_query($con,$update);
 
 	if($run_update){
-		header('location:index.php');
+		header('location:admin.php');
 	}else{
 		echo "Data not update";
 	}

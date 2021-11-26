@@ -6,7 +6,7 @@ $delete = "DELETE FROM user WHERE id = $id";
 $run_data = mysqli_query($con,$delete);
 
 if($run_data){
-	header('location:index.php');
+	header('location:admin.php');
 }else{
 	echo "Donot Delete";
 }

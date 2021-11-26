@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect('localhost','root','','glorietta_christmas_2021');
+$con = mysqli_connect('localhost','root','','devjim_lovedigital');
 if($con){
 	
 }else{
