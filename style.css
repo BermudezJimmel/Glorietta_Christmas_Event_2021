@@ -1,16 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap');
+
+
 body {
     background-color: lightblue;
     padding-top: 50px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap');
+
 
 
 /* Admin Header  */
-#Admin-Header .buttons {
-    padding-bottom: 20px;
+#Admin-Header h1 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
 
+#Admin-Header .buttons {
+    display: flex;
+    justify-content: end;
+    padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#Admin-Header .buttons button{
+    margin-left: 10px;
+}
 
 
 

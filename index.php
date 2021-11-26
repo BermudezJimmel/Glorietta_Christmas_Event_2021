@@ -22,7 +22,16 @@ include('db.php');
 			<h1>Glorietta - Ayala</h1>	
 			<div class="buttons">
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-					Launch demo modal
+					ADD
+				</button>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+					PENDING
+				</button>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+					APPROVED
+				</button>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+					DONE
 				</button>
 			</div>
 		</div>
@@ -36,8 +45,8 @@ include('db.php');
 				<th class="text-head">Phone</th>
 				<th class="text-head">Address</th>
 				<th class="text-head">Picture</th>
-				<th class="text-head">Edit</th>
-				<th class="text-head">Delete</th>
+				<th class="text-head">Action</th>
+				<!-- <th class="text-head">Delete</th> -->
 			</tr>
  
 			<?php  
@@ -71,14 +80,7 @@ include('db.php');
 					</span>
 					
 				</td>
-				<td class='text-center'>
-					<span>
-						<a href='#'>
-						     <i class='fa fa-trash' data-toggle='modal' data-target='#$id' style='' aria-hidden='true'></i>
-						</a>
-					</span>
-					
-				</td>
+				
 			</tr>
 
 
@@ -110,11 +112,11 @@ include('db.php');
       <div class="modal-body">
         <form action="add.php" method="POST" enctype="multipart/form-data">
 
-
+<!-- 
         	<div class="form-group">
         		<label>ID</label>
         		<input type="text" name="id" class="form-control" placeholder="Your ID.....">
-        	</div>
+        	</div> -->
 
         	<div class="form-group">
         		<label>Name</label>
