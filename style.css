@@ -46,3 +46,15 @@ table .text-head{
     font-size: 15px;
     text-align: center;
 }
+
+/* Modal Buttons*/
+.button-transaction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-transaction .buttons{
+    color: black;
+}
+

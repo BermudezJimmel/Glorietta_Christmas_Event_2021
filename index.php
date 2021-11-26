@@ -21,14 +21,28 @@ include('db.php');
 	<div class="container-fluid">
 		<div id="Admin-Header">
 			<div class="page-header">
-				<h1>Event System <small>Ayala - Glorietta</small></h1>
+				<h1>Ayala - Glorietta <small>LED Event System</small></h1>
 			</div>
 			<div class="buttons">
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 					ADD
 				</button>
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-					PENDING
+					PENDING 
+						<span>(
+						<?php 
+							include('db.php');
+
+							foreach($con->query('SELECT COUNT(*) FROM user') as $row)
+								{
+							
+								echo $row['COUNT(*)'];
+								
+								}
+							
+						
+						?>
+						)</span>
 				</button>
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 					APPROVED
@@ -146,15 +160,16 @@ include('db.php');
         		<input type="file" name="image" class="form-control" accept="image/*" >
         	</div>
 
-        	
-        	 <input type="submit" name="submit" class="btn btn-info btn-large" value="Submit">
+			<div class="button-transaction">
+				<input type="submit" name="submit" class="btn btn-info btn-large" value="Submit">
+			</div>
         	
         	
         </form>
       </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+      </div> -->
     </div>
 
   </div>
