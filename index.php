@@ -27,13 +27,13 @@ include('db.php');
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 					ADD
 				</button>
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
 					PENDING 
 						<span>(
 						<?php 
 							include('db.php');
 
-							foreach($con->query('SELECT COUNT(*) FROM user') as $row)
+							foreach($con->query('SELECT COUNT(*) FROM user where status="pending"') as $row)
 								{
 							
 								echo $row['COUNT(*)'];
@@ -46,9 +46,37 @@ include('db.php');
 				</button>
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 					APPROVED
+					<span>(
+						<?php 
+							include('db.php');
+
+							foreach($con->query('SELECT COUNT(*) FROM user where status="approved"') as $row)
+								{
+							
+								echo $row['COUNT(*)'];
+								
+								}
+							
+						
+						?>
+						)</span>
 				</button>
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
 					DONE
+					<span>(
+						<?php 
+							include('db.php');
+
+							foreach($con->query('SELECT COUNT(*) FROM user where status="done"') as $row)
+								{
+							
+								echo $row['COUNT(*)'];
+								
+								}
+							
+						
+						?>
+						)</span>
 				</button>
 			</div>
 		</div>
@@ -161,7 +189,7 @@ include('db.php');
         	</div>
 
 			<div class="button-transaction">
-				<input type="submit" name="submit" class="btn btn-info btn-large" value="Submit">
+				<input type="submit" name="submit" class="btn btn-primary btn-large" value="ADD / Submit">
 			</div>
         	
         	
@@ -231,7 +259,7 @@ while($row = mysqli_fetch_array($run_data))
 	$email = $row['email'];
 	$phone = $row['phone'];
 	$address = $row['address'];
-	$image = $row['image'];
+	// $image = $row['image'];
 	echo "
 
 <div id='edit$id' class='modal fade' role='dialog'>
@@ -269,9 +297,8 @@ while($row = mysqli_fetch_array($run_data))
         	</div>
 
         	<div class='form-group'>
-        		<label>Image</label>
-        		<input type='file' name='image' class='form-control' required>
-        		<img src = 'images/$image' style='width:50px; height:50px'>
+        		<label>Image</label> <br>
+        		<img src = 'images/$image' style='max-width: 250px'>
         	</div>
 
         	

@@ -3,7 +3,6 @@
 
 body {
     background-color: lightblue;
-    padding-top: 50px;
 }
 
 container {
@@ -54,7 +53,4 @@ table .text-head{
     align-items: center;
 }
 
-.button-transaction .buttons{
-    color: black;
-}
 

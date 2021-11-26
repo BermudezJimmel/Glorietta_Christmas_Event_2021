@@ -9,17 +9,22 @@ if(isset($_POST['submit']))
 	$phone = $_POST['phone'];
 	$address  = $_POST['address'];
 	
-	$msg = "";
-	$image = $_FILES['image']['name'];
-	$target = "images/".basename($image);
 
-	if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-  		$msg = "Image uploaded successfully";
-  	}else{
-  		$msg = "Failed to upload image";
-  	}
+	// IMAGE EDIT 
 
-	$update = "UPDATE user SET name='$name', email = '$email', phone = '$phone', address = '$address', image = '$image' WHERE id=$id ";
+	// $msg = "";
+	// $image = $_FILES['image']['name'];
+	// $target = "images/".basename($image);
+
+	// if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+  	// 	$msg = "Image uploaded successfully";
+  	// }else{
+  	// 	$msg = "Failed to upload image";
+  	// }
+
+	// $update = "UPDATE user SET name='$name', email = '$email', phone = '$phone', address = '$address', image = '$image' WHERE id=$id ";
+
+	$update = "UPDATE user SET name='$name', email = '$email', phone = '$phone', address = '$address' WHERE id=$id ";
 	$run_update = mysqli_query($con,$update);
 
 	if($run_update){
