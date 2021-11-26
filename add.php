@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
   	// $insert_data = "INSERT INTO user (id,name,email,phone,address,image) VALUES ('$id','$name','$email','$phone','$address','$image')";
 	
 	  //   new 
-	$insert_data = "INSERT INTO user (name,email,phone,address,image) VALUES ('$name','$email','$phone','$address','$image')";
+	$insert_data = "INSERT INTO user (name,email,phone,address,image,Date) VALUES ('$name','$email','$phone','$address','$image',now())";
   	$run_data = mysqli_query($con,$insert_data);
 
   	if($run_data){

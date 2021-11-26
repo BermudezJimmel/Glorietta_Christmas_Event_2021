@@ -20,7 +20,9 @@ include('db.php');
 <body>
 	<div class="container-fluid">
 		<div id="Admin-Header">
-			<h1>Glorietta - Ayala</h1>	
+			<div class="page-header">
+				<h1>Event System <small>Ayala - Glorietta</small></h1>
+			</div>
 			<div class="buttons">
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 					ADD
