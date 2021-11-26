@@ -109,7 +109,7 @@ include('db.php');
 
 			<?php
 
-        	$get_data = "SELECT * FROM user";
+        	$get_data = "SELECT * FROM user order by id DESC";
         	$run_data = mysqli_query($con,$get_data);
 
         	while($row = mysqli_fetch_array($run_data))
