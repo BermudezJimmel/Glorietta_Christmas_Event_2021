@@ -27,7 +27,7 @@ include('db.php');
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 					ADD
 				</button>
-				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#PendingModal">
 					PENDING 
 						<span>(
 						<?php 
@@ -40,11 +40,11 @@ include('db.php');
 								
 								}
 							
-						
+								
 						?>
 						)</span>
 				</button>
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ApprovedModal">
 					APPROVED
 					<span>(
 						<?php 
@@ -61,7 +61,7 @@ include('db.php');
 						?>
 						)</span>
 				</button>
-				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#DoneModal">
 					DONE
 					<span>(
 						<?php 
@@ -291,10 +291,6 @@ while($row = mysqli_fetch_array($run_data))
         		<input type='text' name='phone' class='form-control' value='$phone'>
         	</div>
 
-        	<div class='form-group'>
-        		<label>Address</label>
-        		<input type='text' name='address' class='form-control' value='$address'>
-        	</div>
 
         	<div class='form-group'>
         		<label>Image</label> <br>
@@ -323,5 +319,118 @@ while($row = mysqli_fetch_array($run_data))
 ?>
 
 
+
+<!-- Pending Modal  -->
+<div id="PendingModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center">Pending Data</h4>
+      </div>
+      <div class="modal-body">
+	  <table class="table table-bordered table-striped table-hover">
+			<tr>
+				<!-- <th class="text-head">ID</th> -->
+				<th class="text-head">Name</th>
+				<th class="text-head">Picture</th>
+				<th class="text-head">Action</th>
+				<!-- <th class="text-head">Delete</th> -->
+			</tr>
+ 
+			<?php  
+
+        	$get_data = "SELECT * FROM user";
+        	$run_data = mysqli_query($con,$get_data);
+
+        	while($row = mysqli_fetch_array($run_data))
+        	{
+        		$id = $row['id']; 
+        		$name = $row['name'];
+        		$image = $row['image'];
+
+        		echo "
+
+        		<tr>
+				
+				<td class='text-center'>$name</td>
+				<td class='text-center'><img src='images/$image' style='width:50px; height:50px;'></td>
+				<td class='text-center'>
+					<span>
+					     <a href='#'>
+					         <i class='fa fa-pencil' data-toggle='modal' data-target='#edit$id' style='' aria-hidden='true'></i>
+					    </a>
+					</span>
+					
+				</td>
+				
+			</tr>
+
+
+        		";
+        	}
+
+        	?>
+
+			
+			
+		</table>
+
+    
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+
+  </div>
+</div>
+
+<!-- Approved Modal  -->
+<div id="ApprovedModal" class="modal fade" role="dialog">
+  <div class="modal-dialog  modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center">Approved Data</h4>
+      </div>
+      <div class="modal-body">
+    
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- Done Modal  -->
+<div id="DoneModal" class="modal fade" role="dialog">
+  <div class="modal-dialog  modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center">Done Data</h4>
+      </div>
+      <div class="modal-body">
+    
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+
+  </div>
+</div>
 </body>
 </html>
