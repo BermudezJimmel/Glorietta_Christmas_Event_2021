@@ -90,7 +90,7 @@
           <img src="assets/img/PNG/Hero_Logo.png" alt="">
         <div>
           <!--<h2 id="detail">Globaltronics, in partnership with The PARC Foundation,<br>transforms several of the latter's spaces into the first "Truly Digital Events Place" in the country.</h2>-->
-        <button type="submit" data-toggle="modal" data-target="#exampleModal" style="visibility: hidden;">REGISTER NOW!</button>
+        <button type="submit" data-toggle="modal" data-target="#exampleModal"">REGISTER NOW!</button>
           <!-- Button trigger modal -->
    
     </div>
